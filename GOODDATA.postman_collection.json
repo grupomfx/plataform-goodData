@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "6bc6f084-b5e4-41b9-8adf-3017ea4af139",
+		"name": "GOODDATA",
+		"description": "Collection API from GoodData\n\nDOCUMENTATION: \n\nhttps://help.gooddata.com/display/API/API+Reference#/reference/authentication/log-in/log-in",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN - GoodData",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "login",
+						"value": "{{login}}",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "{{password}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"postUserLogin\":{\n\t\"login\":\"{{login}}\",\n\t\"password\":\"{{password}}\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://analytics.totvs.com.br/gdc/account/login",
+					"protocol": "https",
+					"host": [
+						"analytics",
+						"totvs",
+						"com",
+						"br"
+					],
+					"path": [
+						"gdc",
+						"account",
+						"login"
+					]
+				},
+				"description": "Login project GoodData - analytics.totvs.com.br"
+			},
+			"response": []
+		},
+		{
+			"name": "TOKEN - GoodData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "Get Token"
+			},
+			"response": []
+		},
+		{
+			"name": "STYLE PALLET COLOR - GoodData",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-GDC-AuthTT",
+						"value": "{temporary_token}",
+						"type": "text"
+					},
+					{
+						"key": "X-GDC-AuthSST",
+						"value": "{super_secured_token}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"styleSettings\" :\n{\"chartPalette\": [ \n   { \"guid\": \"guid1\", \"fill\": { \"r\":209, \"g\":211, \"b\":212 } }, \n   { \"guid\": \"guid2\", \"fill\": { \"r\":167, \"g\":169, \"b\":172 } }, \n   { \"guid\": \"guid3\", \"fill\": { \"r\":128, \"g\":130, \"b\":133 } }, \n   { \"guid\": \"guid4\", \"fill\": { \"r\":88,  \"g\":89,  \"b\":91 } },\n   { \"guid\": \"guid5\", \"fill\": { \"r\":166, \"g\":206, \"b\":26 } },\n   { \"guid\": \"guid6\", \"fill\": { \"r\":250, \"g\":166, \"b\":26 } },\n   { \"guid\": \"guid7\", \"fill\": { \"r\":241, \"g\":90,  \"b\":34 } },\n   { \"guid\": \"guid8\", \"fill\": { \"r\":237, \"g\":20,  \"b\":91 } }\n\n  ] \n} \n}\n"
+				},
+				"url": {
+					"raw": "https://analytics.totvs.com.br/gdc/projects/{{project}}/styleSettings",
+					"protocol": "https",
+					"host": [
+						"analytics",
+						"totvs",
+						"com",
+						"br"
+					],
+					"path": [
+						"gdc",
+						"projects",
+						"{{projectAcademy}}",
+						"styleSettings"
+					]
+				},
+				"description": "Modify pallet color of project GoodData"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2f7d1293-267f-4c91-aa76-4719370ac2a9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "236703f0-7d65-4d3d-818f-e4a579d4ddd5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cd877a60-1e4e-42f0-a691-2c1c5b21524a",
+			"key": "login",
+			"value": "email",
+			"type": "string"
+		},
+		{
+			"id": "8458083d-aa82-462d-94b1-79f838fb158f",
+			"key": "password",
+			"value": "senha",
+			"type": "string"
+		},
+		{
+			"id": "e8182243-3be3-49b1-b3b2-5644f4eb9583",
+			"key": "project",
+			"value": "projectID",
+			"type": "string"
+		}
+	]
+}

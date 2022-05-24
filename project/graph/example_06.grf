@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph author="becker-developer" created="Thu May 19 08:34:56 BRT 2022" guiVersion="3.4.4.P" id="1653404616030" licenseType="Commercial" modified="Tue May 24 12:25:11 BRT 2022" modifiedBy="becker-developer" name="example_06" revision="1.7" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata0" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="|" name="recordName1" previewAttachmentCharset="ISO-8859-1" recordDelimiter="\n" type="delimited">
+<Field delimiter="\r\n" name="response" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1">
+<Record fieldDelimiter="|" name="recordName2" recordDelimiter="\n" type="delimited">
+<Field name="ispb" type="string"/>
+<Field name="name" type="string"/>
+<Field name="code" type="string"/>
+<Field name="fullName" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2">
+<Record fieldDelimiter="|" name="recordName3" recordDelimiter="\n" type="delimited">
+<Field name="ispb" type="string"/>
+<Field name="name" type="string"/>
+<Field name="code" type="string"/>
+<Field name="fullName" type="string"/>
+</Record>
+</Metadata>
+<Property fileURL="workspace.prm" id="GraphParameter0"/>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="204" id="Note0" textColorB="0" textColorG="0" textColorR="0" textFontSize="8" title="Lê a API de bancos" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="253" x="46" y="59">
+<attr name="text"><![CDATA[Lê a API não autenticada da API brasil (lista Bancos)]]></attr>
+</Note>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="204" id="Note1" textColorB="0" textColorG="0" textColorR="0" textFontSize="8" title="Mapeamento do JSON" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="253" x="375" y="59">
+<attr name="text"><![CDATA[Mepea os campos do Objeto (json)]]></attr>
+</Note>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="204" id="Note2" textColorB="0" textColorG="0" textColorR="0" textFontSize="8" title="Envia dados para lixeira (Memoria)" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="253" x="688" y="59">
+<attr name="text"><![CDATA[Envia os dados para lixeira ]]></attr>
+</Note>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node charset="UTF-8" enabled="enabled" fileURL="port:$0.response:stream" guiName="JSONReader" guiX="438" guiY="134" id="JSONREADER" type="JSON_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- =========================== Context ================================ -->
+<!-- Context element sets the "current node" in the JSON tree             --> 
+<!-- for subsequent Mapping (or Context) operations.                      -->
+<!--                                                                      -->
+<!-- Parameters:                                                          -->
+<!--   xpath: position in the JSON tree                                   -->
+<!--   outPort: (optional) routes mapped data to specified output port    -->
+<!--                                                                      -->
+<!-- Valid "xpath" for root context:                                      -->
+<!--   xpath="/root/object"  if root of JSON structure is an object       -->
+<!--   xpath="/root/array"   if root of JSON structure is an array        -->
+  
+<Context xpath="/root/array" outPort="0">
+
+	 <Mapping cloverField="ispb" xpath="ispb" />
+     <Mapping cloverField="name" xpath="name"/>
+     <Mapping cloverField="code" xpath="code"/>
+     <Mapping cloverField="fullName" xpath="fullName"/>
+  
+</Context>
+]]></attr>
+</Node>
+<Node charset="UTF-8" ctlFunctionsSource="//#CTL2&#10;&#10;/**&#10; * Generates request parameters (usually page numbers, offsets, timestamps, signature hashes,etc.)&#10; * Called before each request.&#10; *&#10; * Last response is is only defined if iteration number is greater than one. Therefore, for the very first request&#10; * lastResponseStatus is 200, lastResponseHeaders and lastResponseBody are empty.&#10; *&#10; * If input port is connected, incoming data record can be accessed through $in.0.fieldName&#10; *&#10; * inputEdgeRecord - contains fields of the input edge record&#10; * iterationNumber - starts at 1&#10; * lastResponseStatus - HTTP status of the previous request&#10; * lastResponseHeaders - HTTP headers of the previous request&#10; * lastResponseBody -  body of the previous request&#10; *&#10; * returns a map of params that can be used in the request URL&#10;**/&#10;function map[string, string] generateRequestParameters(map[string, string] inputEdgeRecord, integer iterationNumber, integer lastResponseStatus, map[string, string]lastResponseHeaders, string lastResponseBody) {&#10;&#10;    // Copy all input parameters into the request parameters map.&#10;    map[string, string] requestParams = inputEdgeRecord;&#10;&#10;    /**&#10;     *  PAGING&#10;     *&#10;     *  (Tip: comment/uncomment the code suitable for your use case)&#10;     **/&#10;&#10;    /** Using pages **/&#10;    requestParams[&quot;PAGE_NO&quot;] = toString(iterationNumber);&#10;&#10;    /** Using start offset and end offset **/&#10;    // integer RECORDS_PER_PAGE = 1000;&#10;    // requestParams[&quot;START_OFFSET&quot;] = toString((iterationNumber - 1) * RECORDS_PER_PAGE); //starts at 0&#10;    // requestParams[&quot;END_OFFSET&quot;] = toString((iterationNumber * RECORDS_PER_PAGE) - 1);&#10;&#10;    /*** Using start offset and records count ***/&#10;    // integer RECORDS_PER_PAGE = 1000;&#10;    // requestParams[&quot;START_OFFSET&quot;] = toString((iterationNumber - 1) * RECORDS_PER_PAGE); //starts at 0&#10;    // requestParams[&quot;RECORDS_PER_PAGE&quot;] = toString(RECORDS_PER_PAGE);&#10;&#10;    return requestParams;&#10;}&#10;&#10;/**&#10; * Determines the outcome of the response. Used for controlling the paging workflow and detecting errors.&#10; * Called after each request response.&#10; *&#10; * Default implementations returns &quot;DONE_WITH_OUTPUT&quot; to make one REST call and finish.&#10; *&#10; * If input port is connected, incoming data record can be accessed through $in.0.fieldName&#10; *&#10; * responseStatus - response HTTP status&#10; * responseHeaders - response HTTP headers&#10; * responseBody -  response body&#10; *&#10; * returns&#10; *  CONTINUE - continue to next iteration (e.g., next page)&#10; *  DONE_NO_OUTPUT (default) - last iteration finished, no data will be sent to the output port for the last iteration (no data received from the last iteration)&#10; *  DONE_WITH_OUTPUT - last iteration finished, data will be sent to the output for the last iteration (data received from the last iteration)&#10; *  RETRY - retry the last failed request&#10; *  FATAL_ERROR - fatal error, aborts the HTTP connector run&#10;**/&#10;function string checkResponse(integer responseStatus, map[string, string] responseHeaders, string responseBody) {&#10;    return &quot;DONE_WITH_OUTPUT&quot;;&#10;&#10;    // Example response handling&#10;    // if (responseStatus &gt;= 200  &amp;&amp;  responseStatus &lt; 300) {&#10;    //     return &quot;CONTINUE&quot;;&#10;    // }&#10;    // else if (responseStatus == 404) {&#10;    //     // HTTP status &quot;404 - NOT FOUND&quot; could mean there are no more pages or records&#10;    //     return &quot;DONE_NO_OUTPUT&quot;;&#10;    // }&#10;    // else if (responseStatus &gt;= 500 || responseBody.indexOf('{&quot;error&quot;: &quot;just a temporary error&quot;}') &gt; -1) {&#10;    //     // Internal server errors could be temporary (this sends the last response to the error output port)&#10;    //     return &quot;RETRY&quot;;&#10;    // }&#10;    // else {&#10;    //     // Otherwise abort the HTTP connector run (this sends the last response to the error output port)&#10;    //     return &quot;FATAL_ERROR&quot;;&#10;    // }&#10;}&#10;&#10;/**&#10; * Updates the request params before each request retry attempt if it failed previously.&#10; * Useful for resetting authorization parameter (signatures, tokens, etc.), updating timestamp, etc.&#10; *&#10; * Optional. When not defined, the request stays the same.&#10; *&#10; * If input port is connected, incoming data record can be accessed through $in.0.fieldName&#10; *&#10; * failedRequestParams original parameters of request which failed and should be retried&#10; * retryNumber number of current retry, &quot;1&quot; for the first retry&#10; * lastResponseStatus - HTTP status of the failed request&#10; * lastResponseHeaders - HTTP headers of the failed request&#10; * lastResponseBody -  body of the failed request&#10; *&#10; * returns map of the modified params for the retry request&#10;**/&#10;function map[string, string] modifyRequestParamsBeforeRetryAttempt(map[string, string] failedRequestParams, integer retryNumber,&#10;        integer responseStatus, map[string, string] responseHeaders, string responseBody) {&#10;&#10;    // Copy all the previous parameters into the retry request parameters map.&#10;    map[string, string] modifiedRequestParams = failedRequestParams;&#10;&#10;    /*** Modify the params of the request ***/&#10;&#10;    // Example of timestamp modification&#10;    // modifiedRequestParams[&quot;TIMESTAMP&quot;] = toString(date2long(today()));&#10;&#10;    return modifiedRequestParams;&#10;}" enabled="enabled" guiName="REST Connector" guiX="104" guiY="134" id="REST_CONNECTOR" requestMethod="GET" type="GENERIC_REST_CONNECTOR">
+<attr name="url"><![CDATA[https://brasilapi.com.br/api/banks/v1]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Trash" guiX="751" guiY="125" id="TRASH" type="TRASH"/>
+<Edge debugMode="true" fromNode="JSONREADER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge3" inPort="Port 0 (in)" metadata="Metadata2" outPort="Port 0 (out)" toNode="TRASH:0"/>
+<Edge debugMode="true" fromNode="REST_CONNECTOR:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" metadata="Metadata0" outPort="Port 0 (output)" toNode="JSONREADER:0"/>
+</Phase>
+</Graph>

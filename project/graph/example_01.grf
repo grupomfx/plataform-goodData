@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph author="becker-developer" created="Thu May 19 08:34:56 BRT 2022" guiVersion="3.4.4.P" id="1653402993148" licenseType="Commercial" modified="Tue May 24 13:06:06 BRT 2022" modifiedBy="becker-developer" name="example_01" revision="1.12" showComponentDetails="true">
+<Global>
+<Property fileURL="workspace.prm" id="GraphParameter0"/>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="229" id="Note1" textColorB="0" textColorG="0" textColorR="0" textFontSize="10" title=" FILE DOWLOAD" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="247" x="375" y="30">
+<attr name="text"><![CDATA[Exemplificando o componente de dowload ]]></attr>
+</Note>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="227" id="Note0" textColorB="0" textColorG="0" textColorR="0" textFontSize="10" title="FILE DELETE" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="250" x="59" y="31">
+<attr name="text"><![CDATA[Exemplificando o componente de delete ]]></attr>
+</Note>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node baseURL="https://${USER_PWD_SECURE_DI}@secure-di.gooddata.com/project-uploads/${GDC_PROJECT_ID}/today/" destination="${DATA_SOURCE_DIR}" enabled="enabled" guiName="File Download" guiX="425" guiY="110" id="FILE_DOWNLOAD1" type="FILE_DOWNLOAD"/>
+</Phase>
+<Phase number="1">
+<Node baseURL="${DATA_TMP_DIR}/Base.zip" enabled="disabled" guiName="File Delete" guiX="106" guiY="110" id="FILE_DELETE" type="FILE_DELETE"/>
+</Phase>
+</Graph>

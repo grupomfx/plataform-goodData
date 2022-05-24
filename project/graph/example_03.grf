@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph author="becker-developer" created="Thu May 19 08:34:56 BRT 2022" guiVersion="3.4.4.P" id="1653403289638" licenseType="Commercial" modified="Tue May 24 13:25:27 BRT 2022" modifiedBy="becker-developer" name="example_03" revision="1.3" showComponentDetails="true">
+<Global>
+<Metadata id="Metadata4" previewAttachment="${DATA_TMP_DIR}/Meta.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Meta.csv" name="Meta_csv" previewAttachment="${DATA_TMP_DIR}/Meta.csv" previewAttachmentCharset="ISO-8859-1" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="&quot;Vendedor&quot;" name="Vendedor" type="string"/>
+<Field label="&quot;Meta Venda&quot;" name="Meta_Venda" type="string"/>
+<Field eofAsDelimiter="false" label="&quot;Data&quot;" name="Data" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata0" previewAttachment="${DATA_TMP_DIR}/Produto.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Produto.csv" name="Produto_csv" previewAttachment="${DATA_TMP_DIR}/Produto.csv" previewAttachmentCharset="ISO-8859-1" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="&quot;Cod_Produto&quot;" name="Cod_Produto" type="string"/>
+<Field label="&quot;Produto&quot;" name="Produto" type="string"/>
+<Field label="&quot;Marca&quot;" name="Marca" type="string"/>
+<Field label="&quot;Grupo&quot;" name="Grupo" type="string"/>
+<Field eofAsDelimiter="false" label="&quot;Subgrupo&quot;" name="Subgrupo" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata3" previewAttachment="${DATA_TMP_DIR}/Produto.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Produto.csv" name="Produto_csv" previewAttachment="${DATA_TMP_DIR}/Produto.csv" previewAttachmentCharset="ISO-8859-1" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="&quot;Cod_Produto&quot;" name="Cod_Produto" type="string"/>
+<Field label="&quot;Produto&quot;" name="Produto" type="string"/>
+<Field label="&quot;Marca&quot;" name="Marca" type="string"/>
+<Field label="&quot;Grupo&quot;" name="Grupo" type="string"/>
+<Field eofAsDelimiter="false" label="&quot;Subgrupo&quot;" name="Subgrupo" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata6" previewAttachment="${DATA_TMP_DIR}/Produto.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Produto.csv" name="Produto_csv" previewAttachment="${DATA_TMP_DIR}/Produto.csv" previewAttachmentCharset="ISO-8859-1" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field name="Cod_Produto" type="string"/>
+<Field name="Produto" type="string"/>
+<Field name="Marca" type="string"/>
+<Field name="Grupo" type="string"/>
+<Field eofAsDelimiter="false" name="Subgrupo" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata2" previewAttachment="${DATA_TMP_DIR}/Vendas.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Vendas.csv" name="Vendas_csv" previewAttachment="${DATA_TMP_DIR}/Vendas.csv" previewAttachmentCharset="ISO-8859-1" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="&quot;Nota Fiscal&quot;" name="Nota_Fiscal" type="string"/>
+<Field label="&quot;Vendedor&quot;" name="Vendedor" type="string"/>
+<Field label="&quot;Unidade&quot;" name="Unidade" type="string"/>
+<Field label="&quot;UF&quot;" name="UF" type="string"/>
+<Field label="&quot;Região&quot;" name="Regiao" type="string"/>
+<Field label="&quot;Empresarial&quot;" name="Empresarial" type="string"/>
+<Field label="&quot;AtacadoVarejo&quot;" name="AtacadoVarejo" type="string"/>
+<Field label="&quot;Cod_Produto&quot;" name="Cod_Produto" type="string"/>
+<Field label="&quot;Produto&quot;" name="Produto" type="string"/>
+<Field label="&quot;Marca&quot;" name="Marca" type="string"/>
+<Field label="&quot;Grupo&quot;" name="Grupo" type="string"/>
+<Field label="&quot;Subgrupo&quot;" name="Subgrupo" type="string"/>
+<Field label="&quot;Quantidade&quot;" name="Quantidade" type="string"/>
+<Field label="&quot;Venda&quot;" name="Venda" type="string"/>
+<Field label="&quot;Custo&quot;" name="Custo" type="string"/>
+<Field eofAsDelimiter="false" label="&quot;Data&quot;" name="Data" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata5" previewAttachment="${DATA_TMP_DIR}/Vendas.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Vendas.csv" name="Vendas_csv" previewAttachment="${DATA_TMP_DIR}/Vendas.csv" previewAttachmentCharset="ISO-8859-1" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="Nota Fiscal" name="Nota_Fiscal" type="string"/>
+<Field label="Vendedor" name="Vendedor" type="string"/>
+<Field label="Unidade" name="Unidade" type="string"/>
+<Field label="UF" name="UF" type="string"/>
+<Field label="Região" name="Regiao" type="string"/>
+<Field label="Empresarial" name="Empresarial" type="string"/>
+<Field label="AtacadoVarejo" name="AtacadoVarejo" type="string"/>
+<Field label="Cod_Produto" name="Cod_Produto" type="string"/>
+<Field label="Produto" name="Produto" type="string"/>
+<Field label="Marca" name="Marca" type="string"/>
+<Field label="Grupo" name="Grupo" type="string"/>
+<Field label="Subgrupo" name="Subgrupo" type="string"/>
+<Field label="Quantidade" name="Quantidade" type="string"/>
+<Field label="Venda" name="Venda" type="string"/>
+<Field label="Custo" name="Custo" type="string"/>
+<Field eofAsDelimiter="false" label="Data" name="Data" type="string"/>
+</Record>
+</Metadata>
+<Metadata id="Metadata1" previewAttachment="${DATA_TMP_DIR}/Vendedor.csv" previewAttachmentCharset="ISO-8859-1">
+<Record fieldDelimiter="," label="Vendedor.csv" name="Vendedor_csv" previewAttachment="${DATA_TMP_DIR}/Vendedor.csv" previewAttachmentCharset="ISO-8859-1" quoteChar="&quot;" quotedStrings="true" recordDelimiter="\n" skipSourceRows="1" type="delimited">
+<Field label="&quot;Vendedor&quot;" name="Vendedor" type="string"/>
+<Field label="&quot;Unidade&quot;" name="Unidade" type="string"/>
+<Field label="&quot;UF&quot;" name="UF" type="string"/>
+<Field label="&quot;Região&quot;" name="Regiao" type="string"/>
+<Field eofAsDelimiter="false" label="&quot;Empresarial&quot;" name="Empresarial" type="string"/>
+</Record>
+</Metadata>
+<Property fileURL="workspace.prm" id="GraphParameter0"/>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="574" id="Note0" textColorB="0" textColorG="0" textColorR="0" textFontSize="10" title="READERS / WRITERS" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="901" x="167" y="35">
+<attr name="text"><![CDATA[Exemplificando componenetes de leitura e escrita]]></attr>
+</Note>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node charset="ISO-8859-1" enabled="enabled" fileURL="${DATA_TMP_DIR}/Meta.csv" guiName="Meta" guiX="182" guiY="437" id="META" quoteCharacter="&quot;" quotedStrings="true" trim="true" type="DATA_READER"/>
+<Node charset="ISO-8859-1" enabled="enabled" fileURL="${DATA_TMP_DIR}/Produto.csv" guiName="Produto" guiX="182" guiY="324" id="PRODUTO" quoteCharacter="&quot;" quotedStrings="true" trim="true" type="DATA_READER"/>
+<Node enabled="enabled" guiName="Trash" guiX="554" guiY="101" id="TRASH" type="TRASH"/>
+<Node enabled="enabled" guiName="Trash" guiX="554" guiY="214" id="TRASH1" type="TRASH"/>
+<Node enabled="enabled" guiName="Trash" guiX="554" guiY="324" id="TRASH2" type="TRASH"/>
+<Node enabled="enabled" guiName="Trash" guiX="554" guiY="437" id="TRASH3" type="TRASH"/>
+<Node charset="ISO-8859-1" dataPolicy="strict" enabled="enabled" fileURL="${DATA_TMP_DIR}/Vendas.csv" guiName="Vendas" guiX="182" guiY="101" id="VENDAS" quoteCharacter="&quot;" quotedStrings="true" type="DATA_READER">
+<attr name="guiDescription"><![CDATA[Lê dados de Vendas
+]]></attr>
+</Node>
+<Node charset="ISO-8859-1" enabled="enabled" fileURL="${DATA_TMP_DIR}/Vendedor.csv" guiName="Vendedor" guiX="182" guiY="214" id="VENDEDOR" quoteCharacter="&quot;" quotedStrings="true" trim="true" type="DATA_READER"/>
+<Edge debugMode="true" fromNode="META:0" guiBendpoints="" guiRouter="Manhattan" id="Edge4" inPort="Port 0 (in)" metadata="Metadata4" outPort="Port 0 (output)" toNode="TRASH3:0"/>
+<Edge debugMode="true" fromNode="PRODUTO:0" guiBendpoints="" guiRouter="Manhattan" id="Edge11" inPort="Port 0 (in)" metadata="Metadata6" outPort="Port 0 (output)" toNode="TRASH2:0"/>
+<Edge debugMode="true" fromNode="VENDAS:0" guiBendpoints="" guiRouter="Manhattan" id="Edge5" inPort="Port 0 (in)" metadata="Metadata5" outPort="Port 0 (output)" toNode="TRASH:0"/>
+<Edge debugMode="true" fromNode="VENDEDOR:0" guiBendpoints="" guiRouter="Manhattan" id="Edge2" inPort="Port 0 (in)" metadata="Metadata1" outPort="Port 0 (output)" toNode="TRASH1:0"/>
+</Phase>
+</Graph>

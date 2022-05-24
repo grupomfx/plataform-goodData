@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph author="becker-developer" created="Thu May 19 08:34:56 BRT 2022" guiVersion="3.4.4.P" id="1653403192490" licenseType="Commercial" modified="Tue May 24 11:47:41 BRT 2022" modifiedBy="becker-developer" name="example_02" revision="1.1" showComponentDetails="true">
+<Global>
+<Property fileURL="workspace.prm" id="GraphParameter0"/>
+<Note alignment="1" backgroundColorB="225" backgroundColorG="255" backgroundColorR="255" enabled="true" folded="false" height="227" id="Note0" textColorB="0" textColorG="0" textColorR="0" textFontSize="10" title="RUN GRAPH" titleColorB="0" titleColorG="0" titleColorR="0" titleFontSize="10" width="340" x="305" y="31">
+<attr name="text"><![CDATA[Executa graph de exemplos (example_01)]]></attr>
+</Note>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" graphName="${GRAPH_DIR}/example_01.grf" guiName="RunGraph" guiX="411" guiY="110" id="RUN_GRAPH" type="RUN_GRAPH">
+<attr name="guiDescription"><![CDATA[Executa Graph de Download
+]]></attr>
+</Node>
+</Phase>
+</Graph>
